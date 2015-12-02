@@ -7,11 +7,15 @@
 % Simulates the Robot balancing itself using an LQR controller and some
 % initial conditions.
 
-function BalancingRobot = MITBalancingRobotSimulation
+function BalancingRobot = MITBalancingRobotSimulation(opt)
 clear; close all; clc;
 
 % Create Balancing Robot
 BalancingRobot = CreateBalancingRobot;
+if (nargin < 1), opt = 'LQR'; end
+if (strcmpi(opt, 'Adaptive'))
+    BalancingRobot.Parameters.actual = BalancingRobot.Parameters.model; 
+end
 
 % Simulation runtime
 tEnd = 10;
