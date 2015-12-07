@@ -8,22 +8,22 @@
 % initial conditions.
 
 function BalancingRobot = MITBalancingRobotSimulation(opt)
-clear; close all; clc;
+%close all; clc;
 
 % Create Balancing Robot
 BalancingRobot = CreateBalancingRobot;
 if (nargin < 1), opt = 'LQR'; end
-if (strcmpi(opt, 'Adaptive'))
+if (~strcmpi(opt, 'Adaptive'))
     BalancingRobot.Parameters.actual = BalancingRobot.Parameters.model; 
 end
 
 % Simulation runtime
-tEnd = 10;
+tEnd = 5;
 dt = 0.01;
 tspan = 0:dt:tEnd;
 
 % Initial state vector
-thi = -10*pi/180;
+thi = -20*pi/180;
 x0 = BalancingRobot.States; 
 x0(3,1) = thi;
 x0 = [x0;x0;0;BalancingRobot.Controller.LQR.K'];

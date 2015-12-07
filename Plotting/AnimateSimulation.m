@@ -23,7 +23,7 @@ for i = 1:1:length(x)
     
     % Plot the body of the Robot (pendulum)
     plot([y(i,1)*r, y(i,1)*r - L*sin(y(i,3))], [r, r + L*cos(y(i,3))],...
-        'Color','r','LineWidth',25);
+        'Color','r','LineWidth',50);
     
     % Plot the wheel angle state
     plot([y(i,1)*r, y(i,1)*r - r*sin(y(i,1))], [r, r - r*cos(y(i,1))],...

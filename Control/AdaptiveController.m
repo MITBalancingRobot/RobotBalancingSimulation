@@ -23,6 +23,6 @@ Q = eye(4);
 P = care(Am,B,Q);%zeros(size(Am,1),1), Q);
 
 Psi = -B*xm';%Robot.States';
-Eta = 0.1*eye(4);Eta(2,2) = 0.1;Eta(4,4) = 0.1;
+Eta = 0.4*eye(4);%Eta(2,2) = 0.1;Eta(4,4) = 0.1;
 dKadaptive = -Eta*Psi'*P*e;
 

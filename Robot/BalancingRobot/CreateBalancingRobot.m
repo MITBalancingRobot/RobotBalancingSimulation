@@ -26,21 +26,22 @@ BRStruct.Dynamics.Linear.D = [0;...
     0];
 
 %% Robot Model Parameters
-BRStruct.Parameters.model.mp = 513.3e-3;
-BRStruct.Parameters.model.L = 80e-3;
-BRStruct.Parameters.model.Ip = BRStruct.Parameters.model.mp*BRStruct.Parameters.model.L^2;
+BRStruct.Parameters.model.mp = 0.095 + 0.05;
+BRStruct.Parameters.model.L = (0.095*0.015 + 0.05*0.13)/(0.095 + 0.05);
+BRStruct.Parameters.model.Ip = BRStruct.Parameters.model.mp*(1.524e-2)^2 + 0.05*0.13^2;
 
 BRStruct.Parameters.model.mw = 7.2e-3;
-BRStruct.Parameters.model.r = 16e-3;
+BRStruct.Parameters.model.r = 4.6990e-2;
 BRStruct.Parameters.model.Iw = BRStruct.Parameters.model.mw*BRStruct.Parameters.model.r^2/2;
 
 %% Robot Actual Parameters
-BRStruct.Parameters.actual.mp = 1603.3e-3;
-BRStruct.Parameters.actual.L = 85e-3;
-BRStruct.Parameters.actual.Ip = BRStruct.Parameters.actual.mp*BRStruct.Parameters.actual.L^2;
+mAdd = 0.100;
+BRStruct.Parameters.actual.mp = 0.095 + 0.05 + mAdd;
+BRStruct.Parameters.actual.L = (0.095*0.015 + (0.05 + mAdd)*0.13)/(0.095 + 0.05 + mAdd);
+BRStruct.Parameters.actual.Ip = 95e-3*(1.524e-2)^2 + (0.05 + mAdd)*0.13^2;
 
 BRStruct.Parameters.actual.mw = 7.2e-3;
-BRStruct.Parameters.actual.r = 16e-3;
+BRStruct.Parameters.actual.r = 4.6990e-2;
 BRStruct.Parameters.actual.Iw = BRStruct.Parameters.actual.mw*BRStruct.Parameters.actual.r^2/2;
 
 %% Robot States

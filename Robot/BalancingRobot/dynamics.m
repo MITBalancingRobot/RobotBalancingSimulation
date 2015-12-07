@@ -28,10 +28,8 @@ L = Robot.Parameters.actual.L;
 Ip = Robot.Parameters.actual.Ip;
 
 Robot.Controller.Adaptive.K = x(10:13)';
-Robot.Controller.Adaptive.K
 Tau = -Robot.Controller.Adaptive.K*(x(1:4,1) - xd);
 %Tau = -Robot.Controller.LQR.K*(x(1:4,1) - xd);
-
 
 % Nonlinear system response: dx = f(x,u)
 thw = x(1); dthw = x(2); thp = x(3); dthp = x(4);
